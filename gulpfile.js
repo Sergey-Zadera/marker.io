@@ -108,9 +108,19 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('public/css'));
 });
 
+/*
+ |--------------------------------------------------------------------------
+ | Copy fonts.
+ |--------------------------------------------------------------------------
+ */
+gulp.task('copyfonts', function() {
+	gulp.src('./bower_components/bootstrap/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}')
+		.pipe(gulp.dest('public/fonts'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch('app/stylesheets/**/*.less', ['styles']);
 });
 
-gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
+gulp.task('default', ['styles', 'copyfonts', 'vendor', 'browserify-watch', 'watch']);
 gulp.task('build', ['styles', 'vendor', 'browserify']);
