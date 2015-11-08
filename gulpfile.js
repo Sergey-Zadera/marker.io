@@ -23,11 +23,7 @@ var dependencies = [
 	'underscore'
 ];
 
-/*
- |--------------------------------------------------------------------------
- | Combine all JS libraries into a single file for fewer HTTP requests.
- |--------------------------------------------------------------------------
- */
+/* Combine all JS libraries into a single file for fewer HTTP requests. */
 gulp.task('vendor', function() {
 	return gulp.src([
 		'bower_components/jquery/dist/jquery.js',
@@ -39,11 +35,7 @@ gulp.task('vendor', function() {
 		.pipe(gulp.dest('public/js'));
 });
 
-/*
- |--------------------------------------------------------------------------
- | Compile third-party dependencies separately for faster performance.
- |--------------------------------------------------------------------------
- */
+/* ompile third-party dependencies separately for faster performance. */
 gulp.task('browserify-vendor', function() {
 	return browserify()
 		.require(dependencies)
@@ -53,11 +45,7 @@ gulp.task('browserify-vendor', function() {
 		.pipe(gulp.dest('public/js'));
 });
 
-/*
- |--------------------------------------------------------------------------
- | Compile only project files, excluding all third-party dependencies.
- |--------------------------------------------------------------------------
- */
+/* Compile only project files, excluding all third-party dependencies. */
 gulp.task('browserify', ['browserify-vendor'], function() {
 	return browserify('app/main.js')
 		.external(dependencies)
@@ -68,11 +56,7 @@ gulp.task('browserify', ['browserify-vendor'], function() {
 		.pipe(gulp.dest('public/js'));
 });
 
-/*
- |--------------------------------------------------------------------------
- | Same as browserify task, but will also watch for changes and re-compile.
- |--------------------------------------------------------------------------
- */
+/* Same as browserify task, but will also watch for changes and re-compile. */
 gulp.task('browserify-watch', ['browserify-vendor'], function() {
 	var bundler = watchify(browserify('app/main.js', watchify.args));
 	bundler.external(dependencies);
@@ -94,11 +78,7 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
 	}
 });
 
-/*
- |--------------------------------------------------------------------------
- | Compile LESS stylesheets.
- |--------------------------------------------------------------------------
- */
+/* Compile LESS stylesheets. */
 gulp.task('styles', function() {
 	return gulp.src('app/stylesheets/main.less')
 		.pipe(plumber())
@@ -108,11 +88,7 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('public/css'));
 });
 
-/*
- |--------------------------------------------------------------------------
- | Copy fonts.
- |--------------------------------------------------------------------------
- */
+/* Copy fonts. */
 gulp.task('copyfonts', function() {
 	gulp.src('./bower_components/bootstrap/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}')
 		.pipe(gulp.dest('public/fonts'));
