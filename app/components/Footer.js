@@ -25,9 +25,9 @@ class Footer extends React.Component {
 								<strong>Node.js</strong>, <strong>MongoDB</strong> and <strong>React</strong>
 								with Flux architecture and server-side rendering.
 							</p>
-							<p>You may view the
+							<p>You may view the &nbsp;
 								<a href='https://github.com/Sergey-Zadera/marker.io'>Source Code</a>
-								behind this project on GitHub.
+								&nbsp; behind this project on GitHub.
 							</p>
 							<p>© 2015 Marker.Io.</p>
 						</div>

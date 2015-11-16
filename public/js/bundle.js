@@ -262,13 +262,13 @@ var Footer = (function (_React$Component) {
 							_react2['default'].createElement(
 								'p',
 								null,
-								'You may view the',
+								'You may view the  ',
 								_react2['default'].createElement(
 									'a',
 									{ href: 'https://github.com/Sergey-Zadera/marker.io' },
 									'Source Code'
 								),
-								'behind this project on GitHub.'
+								'  behind this project on GitHub.'
 							),
 							_react2['default'].createElement(
 								'p',
@@ -309,6 +309,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = require('react-router');
+
 var Home = (function (_React$Component) {
 	_inherits(Home, _React$Component);
 
@@ -323,8 +325,139 @@ var Home = (function (_React$Component) {
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
-				{ className: 'alert alert-info' },
-				'Hello from Home Component'
+				{ className: 'container' },
+				_react2['default'].createElement(
+					'div',
+					{ className: 'row' },
+					_react2['default'].createElement(
+						'div',
+						{ className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+						_react2['default'].createElement(
+							'div',
+							{ className: 'baner' },
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/add' },
+								_react2['default'].createElement('img', { className: 'thumbnail', src: './img/baner.jpg' })
+							)
+						)
+					)
+				),
+				_react2['default'].createElement(
+					'div',
+					{ className: 'row' },
+					_react2['default'].createElement(
+						'div',
+						{ className: 'col-sm-4 col-md-4' },
+						_react2['default'].createElement(
+							'div',
+							{ className: 'thumbnail' },
+							_react2['default'].createElement('img', { className: 'thumbnail', src: './img/baner.jpg' }),
+							_react2['default'].createElement(
+								'div',
+								{ className: 'caption' },
+								_react2['default'].createElement(
+									'h3',
+									null,
+									'Lorem Ipsum'
+								),
+								_react2['default'].createElement(
+									'p',
+									null,
+									'...'
+								),
+								_react2['default'].createElement(
+									'p',
+									null,
+									_react2['default'].createElement(
+										'a',
+										{ href: '#', className: 'btn btn-primary', role: 'button' },
+										'Lorem Ipsum'
+									),
+									_react2['default'].createElement(
+										'a',
+										{ href: '#', className: 'btn btn-default', role: 'button' },
+										'Lorem Ipsum'
+									)
+								)
+							)
+						)
+					),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'col-sm-4 col-md-4' },
+						_react2['default'].createElement(
+							'div',
+							{ className: 'thumbnail' },
+							_react2['default'].createElement('img', { className: 'thumbnail', src: './img/baner.jpg' }),
+							_react2['default'].createElement(
+								'div',
+								{ className: 'caption' },
+								_react2['default'].createElement(
+									'h3',
+									null,
+									'Lorem Ipsum'
+								),
+								_react2['default'].createElement(
+									'p',
+									null,
+									'...'
+								),
+								_react2['default'].createElement(
+									'p',
+									null,
+									_react2['default'].createElement(
+										'a',
+										{ href: '#', className: 'btn btn-primary', role: 'button' },
+										'Lorem Ipsum'
+									),
+									_react2['default'].createElement(
+										'a',
+										{ href: '#', className: 'btn btn-default', role: 'button' },
+										'Lorem Ipsum'
+									)
+								)
+							)
+						)
+					),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'col-sm-4 col-md-4' },
+						_react2['default'].createElement(
+							'div',
+							{ className: 'thumbnail' },
+							_react2['default'].createElement('img', { className: 'thumbnail', src: './img/baner.jpg' }),
+							_react2['default'].createElement(
+								'div',
+								{ className: 'caption' },
+								_react2['default'].createElement(
+									'h3',
+									null,
+									'Lorem Ipsum'
+								),
+								_react2['default'].createElement(
+									'p',
+									null,
+									'...'
+								),
+								_react2['default'].createElement(
+									'p',
+									null,
+									_react2['default'].createElement(
+										'a',
+										{ href: '#', className: 'btn btn-primary', role: 'button' },
+										'Lorem Ipsum'
+									),
+									_react2['default'].createElement(
+										'a',
+										{ href: '#', className: 'btn btn-default', role: 'button' },
+										'Lorem Ipsum'
+									)
+								)
+							)
+						)
+					)
+				)
 			);
 		}
 	}]);
@@ -335,7 +468,7 @@ var Home = (function (_React$Component) {
 exports['default'] = Home;
 module.exports = exports['default'];
 
-},{"react":"react"}],6:[function(require,module,exports){
+},{"react":"react","react-router":"react-router"}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -527,6 +660,15 @@ var Navbar = (function (_React$Component) {
 								_reactRouter.Link,
 								{ to: '/add' },
 								'Contact'
+							)
+						),
+						_react2['default'].createElement(
+							'li',
+							null,
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/authentication' },
+								'Authentication'
 							)
 						)
 					)
