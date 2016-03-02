@@ -90,11 +90,11 @@ class Navbar extends React.Component {
 					</form>
 					<ul className='nav navbar-nav'>
 						<li><Link to='/'>Home</Link></li>
-						<li><Link to='/add'>Add Marker</Link></li>
-						<li><Link to='/stats'>About Us</Link></li>
-						<li><Link to='/add'>Contact</Link></li>
-						<li><Link to='/authentication'>Authentication</Link></li>
-
+						<li><Link to='/create-marker'>Create Marker</Link></li>
+						<li><Link to='/about-us'>About Us</Link></li>
+						<li><Link to='/contact'>Contact</Link></li>
+						<li><Link to='/login'>Login</Link></li>
+						<li><Link to='/sign-up'>Sign Up</Link></li>
 					</ul>
 				</div>
 			</nav>

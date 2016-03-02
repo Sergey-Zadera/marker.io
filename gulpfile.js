@@ -12,6 +12,8 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var uglify = require('gulp-uglify');
+var buffer = require('vinyl-buffer');
+var sourcemaps = require('gulp-sourcemaps');
 
 var production = process.env.NODE_ENV === 'production';
 
@@ -20,7 +22,7 @@ var dependencies = [
 	'react',
 	'react-dom',
 	'react-router',
-	'underscore'
+	'lodash'
 ];
 
 /* Combine all JS libraries into a single file for fewer HTTP requests. */
@@ -41,6 +43,7 @@ gulp.task('browserify-vendor', function() {
 		.require(dependencies)
 		.bundle()
 		.pipe(source('vendor.bundle.js'))
+		.pipe(buffer())
 		.pipe(gulpif(production, streamify(uglify({ mangle: false }))))
 		.pipe(gulp.dest('public/js'));
 });
@@ -52,7 +55,10 @@ gulp.task('browserify', ['browserify-vendor'], function() {
 		.transform(babelify)
 		.bundle()
 		.pipe(source('bundle.js'))
+		.pipe(buffer())
+		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(gulpif(production, streamify(uglify({ mangle: false }))))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('public/js'));
 });
 
@@ -74,6 +80,9 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
 				gutil.log(gutil.colors.green('Finished rebundling in', (Date.now() - start) + 'ms.'));
 			})
 			.pipe(source('bundle.js'))
+			.pipe(buffer())
+  			.pipe(sourcemaps.init({ loadMaps: true }))
+  			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('public/js/'));
 	}
 });
